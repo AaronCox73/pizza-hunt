@@ -1,7 +1,7 @@
 const { Comment, Pizza } = require('../models');
 
 const commentController = {
-    //add comment to pizza
+    // add comment to pizza
     addComment({ params, body }, res) {
         console.log(body);
         Comment.create(body)
@@ -20,10 +20,9 @@ const commentController = {
                 res.json(dbPizzaData);
             })
             .catch(err => res.json(err));
-    }
-};
+    },
 
-const removeComment = {
+    // remove comment
     removeComment({ params }, res) {
         Comment.findOneAndDelete({ _id: params.commentId })
             .then(deletedComment => {
